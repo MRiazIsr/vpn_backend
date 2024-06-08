@@ -1,7 +1,10 @@
-import { Request, Response } from 'express';
-import { IVpnConfig } from '../models/VpnConfig';
+import { type Response } from 'express';
+import { type IVpnConfig } from '../models/VpnConfig';
+import {
+  type CustomRequest
+} from '../interfaces/middlewareInterfaces';
 
-export const createVpnConfig = async (req: Request, res: Response) => {
+export const createVpnConfig = async (req: CustomRequest, res: Response) => {
   const { name, config } = req.body;
   const db = req.app.locals.db;
 
@@ -20,7 +23,7 @@ export const createVpnConfig = async (req: Request, res: Response) => {
   }
 };
 
-export const getVpnConfig = async (req: Request, res: Response) => {
+export const getVpnConfig = async (req: CustomRequest, res: Response) => {
   const { name } = req.params;
   const db = req.app.locals.db;
 

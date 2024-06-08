@@ -1,5 +1,8 @@
-import { Request, Response } from 'express';
-import { IUser } from '../models/User';
+import type { 
+    Request, 
+    Response 
+} from 'express';
+import type { IUser } from '../models/User';
 
 export const lockUser = async (req: Request, res: Response) => {
     const { userId } = req.body;

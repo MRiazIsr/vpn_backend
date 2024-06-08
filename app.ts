@@ -3,6 +3,15 @@ import authRoutes from './src/routes/auth';
 import vpnRoutes from './src/routes/vpn';
 import adminRoutes from './src/routes/admin';
 import { openDb } from './src/db/init_db';
+import type { User } from './src/interfaces/middlewareInterfaces';
+
+declare global {
+  namespace Express {
+      interface Request {
+          user: User;
+      }
+  }
+}
 
 
 const app = express();

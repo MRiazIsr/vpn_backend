@@ -1,4 +1,8 @@
-import { Request, Response, NextFunction } from 'express';
+import { 
+    type Request,
+    type Response, 
+    type NextFunction 
+} from 'express';
 
 const adminMiddleware = (req: Request, res: Response, next: NextFunction) => {
     if (!req.user.isAdmin) {

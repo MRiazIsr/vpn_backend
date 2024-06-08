@@ -1,10 +1,13 @@
-import { Request, Response, NextFunction } from 'express';
+import type { 
+    Request,
+    Response, 
+    NextFunction 
+} from 'express';
 import jwt from 'jsonwebtoken';
+import {
+    type JwtPayload,
+} from '../interfaces/middlewareInterfaces';
 
-interface JwtPayload {
-    id: string;
-    isAdmin: boolean;
-}
 
 const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
     const token = req.header('Authorization')?.split(' ')[1];
