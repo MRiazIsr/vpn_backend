@@ -9,7 +9,7 @@ export const openDb = async () => {
       password TEXT,
       isAdmin BOOLEAN DEFAULT FALSE,
       locked BOOLEAN DEFAULT FALSE,
-      traffic INTEGER DEFAULT 0
+      allowedTraffic INTEGER DEFAULT 0
     );
     CREATE TABLE IF NOT EXISTS vpn_configs (
       id INTEGER PRIMARY KEY AUTOINCREMENT,

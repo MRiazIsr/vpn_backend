@@ -6,7 +6,7 @@ import type {
 import jwt from 'jsonwebtoken';
 import {
     type JwtPayload,
-} from '../interfaces/middlewareInterfaces';
+} from '../Interfaces/IMiddleware';
 
 
 const authMiddleware = (req: Request, res: Response, next: NextFunction) => {

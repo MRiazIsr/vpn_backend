@@ -2,7 +2,7 @@ import type {
   Request, 
   Response 
 } from 'express';
-import type { IVpnConfig } from '../models/VpnConfig';
+import type { IVpnConfig } from '../Interfaces/IVpnConfig';
 
 export const createVpnConfig = async (req: Request, res: Response) => {
   const { name, config } = req.body;

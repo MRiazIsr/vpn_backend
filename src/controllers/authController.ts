@@ -4,7 +4,7 @@ import type {
 } from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import type { IUser } from '../models/User';
+import type { IUser } from '../Interfaces/IUser';
 
 export const registerUser = async (req: Request, res: Response) => {
   const { username, password } = req.body;
