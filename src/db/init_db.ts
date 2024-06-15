@@ -1,7 +1,7 @@
 import sqlite3 from 'better-sqlite3';
 
 export const openDb = async () => {
-  const db = sqlite3('vpn_configs.db');
+  const db = sqlite3('db_config.db');
   await db.exec(`
     CREATE TABLE IF NOT EXISTS users (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
