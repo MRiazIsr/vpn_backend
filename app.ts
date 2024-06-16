@@ -1,7 +1,7 @@
 import express from 'express';
-import authRoutes from './src/routes/auth';
-import vpnRoutes from './src/routes/vpn';
-import adminRoutes from './src/routes/admin';
+import authRoutes from './src/Routes/auth';
+import vpnRoutes from './src/Routes/vpn';
+import UserRoutes from './src/Routes/User';
 import { openDb } from './src/db/init_db';
 import type { User } from './src/Interfaces/IMiddleware';
 
@@ -23,7 +23,7 @@ openDb().then((db) => {
   app.locals.db = db;
   app.use('/api/auth', authRoutes);
   app.use('/api/vpn', vpnRoutes);
-  app.use('/api/admin', adminRoutes);
+  app.use('/api/user', UserRoutes);
 
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

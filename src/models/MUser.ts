@@ -22,31 +22,21 @@ export class MUser {
         return true;
     }
 
-    public async getUser(userName: string) {
-        return await this.db('users').where('username', userName).first();
+    public async getUser(id: number): Promise<IUser> {
+        return await this.db('users').where('username', id).first();
     }
 
-    public async getAllUsers() {
+    public async getAllUsers(): Promise<IUser[]>{
         return await this.db('users');
     }
 
-    public async lockUser(userName: string): Promise<boolean> {
-        await this.db('users').where('username', userName).update({locked: true});
+    public async updateUser(user: IUser): Promise<boolean> {
+        await this.db('users').where('id', user.id).update(user);
         return true;
     }
-
-    public async unlockUser(userName: string): Promise<boolean> {
-        await this.db('users').where('username', userName).update({locked: false});
-        return true;
-    }
-
+    
     public async deleteUser(userName: string): Promise<boolean> {
         await this.db('users').where('username', userName).del();
-        return true;
-    }
-
-    public async updateUser(id: number, user: IUser): Promise<boolean> {
-        await this.db('users').where('id', user.id).update(user);
         return true;
     }
 }

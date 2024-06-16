@@ -14,28 +14,19 @@ export class UserDataAccess implements IUserDataAccess {
         return await this.MUser.createUser(userName, password, allowedTraffic);
     }
 
-    async getUser(userName: string) {
-        return await this.MUser.getUser(userName);
+    async getUser(id: number): Promise<IUser>{
+        return await this.MUser.getUser(id);
     }
 
-    async getAllUsers() {
+    async getAllUsers(): Promise<IUser[]>{
         return await this.MUser.getAllUsers();
     }
 
-    async lockUser(userName: string): Promise<boolean> {
-        return await this.MUser.lockUser(userName);
-    }
-
-    async unlockUser(userName: string): Promise<boolean> {
-        return await this.MUser.unlockUser(userName);
+    async updateUser(user: IUser): Promise<boolean> {
+        return await this.MUser.updateUser(user);
     }
 
     async deleteUser(userName: string): Promise<boolean> {
         return await this.MUser.deleteUser(userName);
     }
-
-    async updateUser(id: number, user: IUser): Promise<boolean> {
-        return await this.MUser.updateUser(id, user);
-    }
-
 }

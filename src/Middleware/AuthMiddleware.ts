@@ -5,7 +5,7 @@ import type {
 } from 'express';
 import jwt from 'jsonwebtoken';
 import {
-    type JwtPayload,
+    type IJwtPayload,
 } from '../Interfaces/IMiddleware';
 
 
@@ -17,7 +17,7 @@ const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
     }
 
     try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET!) as JwtPayload;
+        const decoded = jwt.verify(token, process.env.JWT_SECRET!) as IJwtPayload;
         req.user = decoded;
         next();
     } catch (error) {
